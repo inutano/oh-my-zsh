@@ -51,7 +51,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/local/bin:/opt/local/bin:$HOME/bin:/usr/bin:/usr/local/bin:$PATH
+export PATH=$HOME/local/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/opt
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
