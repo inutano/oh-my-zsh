@@ -23,10 +23,10 @@ ZSH_THEME="inutano"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -89,6 +89,15 @@ alias n='nano -x'
 alias nv='nano -xv'
 alias tawk='awk -F "\t"'
 
+# History Search
+autoload -U  up-line-or-beginning-search
+zle      -N  up-line-or-beginning-search
+bindkey '^P' up-line-or-beginning-search
+
+autoload -U  down-line-or-beginning-search
+zle      -N  down-line-or-beginning-search
+bindkey '^N' down-line-or-beginning-search
+
 # configuration for boxen
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 [ -f /opt/boxen/nvm/nvm.sh ] && source /opt/boxen/nvm/nvm.sh
@@ -98,3 +107,4 @@ autoload -U add-zsh-hook
 source ~/.zsh.d/zsh-notify/notify.plugin.zsh
 export SYS_NOTIFIER="/opt/boxen/homebrew/bin/terminal-notifier"
 export NOTIFY_COMMAND_COMPLETE_TIMEOUT=17
+
