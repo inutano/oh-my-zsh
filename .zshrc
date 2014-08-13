@@ -41,6 +41,14 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Configure PATH before loading plugins
+export PATH=$HOME/local/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/opt
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# configuration for boxen
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+[ -f /opt/boxen/nvm/nvm.sh ] && source /opt/boxen/nvm/nvm.sh
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -50,9 +58,6 @@ plugins=(git ruby osx bundler brew emoji-clock vagrant tmux docker)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-export PATH=$HOME/local/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/opt
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=ja_JP.UTF-8
@@ -97,10 +102,6 @@ bindkey '^P' up-line-or-beginning-search
 autoload -U  down-line-or-beginning-search
 zle      -N  down-line-or-beginning-search
 bindkey '^N' down-line-or-beginning-search
-
-# configuration for boxen
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-[ -f /opt/boxen/nvm/nvm.sh ] && source /opt/boxen/nvm/nvm.sh
 
 # zsh-notify
 autoload -U add-zsh-hook
