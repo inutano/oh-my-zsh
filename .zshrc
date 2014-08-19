@@ -84,7 +84,12 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls='gls -F --color=auto'
+case ${OSTYPE} in
+  darwin*)
+    alias ls='gls -F --color=auto'
+    ;;
+esac
+
 alias x='exit'
 alias mv='mv -i'
 alias cp='cp -i'
