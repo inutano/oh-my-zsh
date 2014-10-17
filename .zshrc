@@ -42,7 +42,7 @@ COMPLETION_WAITING_DOTS="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Configure PATH before loading plugins
-export PATH=$HOME/local/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/opt
+export PATH=$HOME/local/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/opt:local/sbin:/usr/local/sbin:/usr/sbin:/sbin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # configuration for boxen
