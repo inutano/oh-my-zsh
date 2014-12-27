@@ -49,6 +49,10 @@ export PATH=$HOME/local/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/opt:loc
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 [ -f /opt/boxen/nvm/nvm.sh ] && source /opt/boxen/nvm/nvm.sh
 
+# configuration for rbenv
+[ -f $HOME/.rbenv ] && export PATH="$HOME/.rbenv/bin:$PATH"
+[ -f $HOME/.rbenv ] && eval "$(rbenv init -)"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -109,8 +113,9 @@ zle      -N  down-line-or-beginning-search
 bindkey '^N' down-line-or-beginning-search
 
 # zsh-notify
-autoload -U add-zsh-hook
-source ~/.zsh.d/zsh-notify/notify.plugin.zsh
-export SYS_NOTIFIER="/opt/boxen/homebrew/bin/terminal-notifier"
-export NOTIFY_COMMAND_COMPLETE_TIMEOUT=17
-
+if [ -e $HOME/.zsh.d/zsh-notify ] ; then
+  autoload -U add-zsh-hook
+  source ~/.zsh.d/zsh-notify/notify.plugin.zsh
+  export SYS_NOTIFIER="/opt/boxen/homebrew/bin/terminal-notifier"
+  export NOTIFY_COMMAND_COMPLETE_TIMEOUT=17
+fi
