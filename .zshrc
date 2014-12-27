@@ -45,13 +45,16 @@ COMPLETION_WAITING_DOTS="true"
 export PATH=$HOME/local/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/opt:local/sbin:/usr/local/sbin:/usr/sbin:/sbin
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# Configure PATH for gridengine
+[ -d /home/geadmin/UGER/bin/lx-amd64 ] && export PATH="/home/geadmin/UGER/bin/lx-amd64/:$PATH"
+
 # configuration for boxen
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 [ -f /opt/boxen/nvm/nvm.sh ] && source /opt/boxen/nvm/nvm.sh
 
 # configuration for rbenv
-[ -f $HOME/.rbenv ] && export PATH="$HOME/.rbenv/bin:$PATH"
-[ -f $HOME/.rbenv ] && eval "$(rbenv init -)"
+[ -d $HOME/.rbenv/bin ] && export PATH="$HOME/.rbenv/bin:$PATH"
+[ -f $HOME/.rbenv/bin/rbenv ] && eval "$(rbenv init -)"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -102,6 +105,13 @@ alias dirs='dirs -v'
 alias n='nano -x'
 alias nv='nano -xv'
 alias tawk='awk -F "\t"'
+
+# alias for local build tmux
+tmux_lib_path="${HOME}/local/src/tmux-1.9a/libevent-2.0.21-stable/build/lib"
+local_tmux_bin="${HOME}/local/bin/tmux"
+if [ -d $tmux_lib_path && -f $local_tmux_bin ] ; then
+  alias tmux='LD_LIBRARY_PATH=$tmux_lib_path $local_tmux_bin'
+fi
 
 # History Search
 autoload -U  up-line-or-beginning-search
