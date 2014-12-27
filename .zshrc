@@ -109,7 +109,7 @@ alias tawk='awk -F "\t"'
 # alias for local build tmux
 tmux_lib_path="${HOME}/local/src/tmux-1.9a/libevent-2.0.21-stable/build/lib"
 local_tmux_bin="${HOME}/local/bin/tmux"
-if [ -d $tmux_lib_path && -f $local_tmux_bin ] ; then
+if [ -d $tmux_lib_path ] && [ -f $local_tmux_bin ] ; then
   alias tmux='LD_LIBRARY_PATH=$tmux_lib_path $local_tmux_bin'
 fi
 
