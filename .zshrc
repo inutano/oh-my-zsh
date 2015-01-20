@@ -129,3 +129,36 @@ if [ -e $HOME/.zsh.d/zsh-notify ] ; then
   export SYS_NOTIFIER="/opt/boxen/homebrew/bin/terminal-notifier"
   export NOTIFY_COMMAND_COMPLETE_TIMEOUT=17
 fi
+
+# old network commands deprecator
+net_tools_deprecated_message () {
+  echo -n 'I said you don\'t use net-tools commands, okay?'
+}
+arp () {
+  net_tools_deprecated_message
+  echo 'Use `ip n`'
+}
+ifconfig () {
+  net_tools_deprecated_message
+  echo 'Use `ip a`, `ip link`, `ip -s link`'
+}
+iptunnel () {
+  net_tools_deprecated_message
+  echo 'Use `ip tunnel`'
+}
+iwconfig () {
+  echo -n 'I said you don\'t use iwconfig commands, okay?'
+  echo 'Use `iw`'
+}
+nameif () {
+  net_tools_deprecated_message
+  echo 'Use `ip link`, `ifrename`'
+}
+netstat () {
+  net_tools_deprecated_message
+  echo 'Use `ss`, `ip route` (for netstat -r), `ip -s link` (for netstat -i), `ip maddr` (for netstat -g)'
+}
+route () {
+  net_tools_deprecated_message
+  echo 'Use `ip r`'
+}
