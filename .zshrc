@@ -132,7 +132,7 @@ fi
 
 # old network commands deprecator
 net_tools_deprecated_message () {
-  echo -n 'I said you don\'t use net-tools commands, okay?'
+  echo -n 'I said you do not use net-tools commands, okay?'
 }
 arp () {
   net_tools_deprecated_message
@@ -147,7 +147,7 @@ iptunnel () {
   echo 'Use `ip tunnel`'
 }
 iwconfig () {
-  echo -n 'I said you don\'t use iwconfig commands, okay?'
+  echo -n 'I said you do not use iwconfig commands, okay?'
   echo 'Use `iw`'
 }
 nameif () {
