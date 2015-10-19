@@ -130,6 +130,15 @@ if [ -e $HOME/.zsh.d/zsh-notify ] ; then
   export NOTIFY_COMMAND_COMPLETE_TIMEOUT=17
 fi
 
+# ls colors
+if [ -f ~/.dircolors ]; then
+  if type dircolors > /dev/null 2>&1; then
+    eval $(dircolors ~/.dircolors)
+  elif type gdircolors > /dev/null 2>&1; then
+    eval $(gdircolors ~/.dircolors)
+  fi
+fi                 
+
 # old network commands deprecator
 net_tools_deprecated_message () {
   echo -n 'I said you do not use net-tools commands, okay?'
