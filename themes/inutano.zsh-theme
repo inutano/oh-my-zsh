@@ -13,7 +13,7 @@ ERROR=$'%n@%m:%(5~,%-2~/.../%2~,%~)'
 DEFAULT_ICON=$'\U1F423 '
 ERROR_ICON=$'\U1F373 '
 
-PROMPT=$'%(?.%{$fg_bold[yellow]%}${DEFAULT}.%{$fg_bold[red]%}${ERROR})%{$reset_color%}$(git_prompt_info) ⌚  %{$fg_bold[blue]%}%*%{$reset_color%}
+PROMPT=$'%(?.%{$fg_bold[yellow]%}${DEFAULT}.%{$fg_bold[red]%}${ERROR})%{$reset_color%}$(git_prompt_info) ⌚  %{\e[38;5;51m%}%*%{$reset_color%} 
 %(?.${DEFAULT_ICON}.${ERROR_ICON}) '
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}⭠ "
