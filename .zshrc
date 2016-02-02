@@ -56,6 +56,13 @@ export PATH=$HOME/local/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/opt:loc
 [ -d $HOME/.rbenv/bin ] && export PATH="$HOME/.rbenv/bin:$PATH"
 [ -f $HOME/.rbenv/bin/rbenv ] && eval "$(rbenv init -)"
 
+# configuration for pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
+  export PATH=${PYENV_ROOT}/bin:$PATH
+  eval "$(pyenv init -)"
+fi
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -105,6 +112,7 @@ alias dirs='dirs -v'
 alias n='nano -x'
 alias nv='nano -xv'
 alias tawk='awk -F "\t"'
+alias header="head -1 | tr '\t' '\n' | awk '{ print NR \" \" \$0 }'"
 
 # alias for local build tmux
 tmux_lib_path="${HOME}/local/src/tmux-1.9a/libevent-2.0.21-stable/build/lib"
@@ -137,7 +145,7 @@ if [ -f ~/.dircolors ]; then
   elif type gdircolors > /dev/null 2>&1; then
     eval $(gdircolors ~/.dircolors)
   fi
-fi                 
+fi
 
 # old network commands deprecator
 net_tools_deprecated_message () {
