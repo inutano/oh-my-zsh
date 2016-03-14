@@ -112,7 +112,15 @@ alias dirs='dirs -v'
 alias n='nano -x'
 alias nv='nano -xv'
 alias tawk='awk -F "\t"'
-alias header="head -1 | tr '\t' '\n' | awk '{ print NR \" \" \$0 }'"
+
+# functions
+header(){
+  local input_file=$1
+  cat "${input_file}" |\
+  head -1 |\
+  tr '\t' '\n' |\
+  awk '{ print NR " " $0 }'
+}
 
 # alias for local build tmux
 tmux_lib_path="${HOME}/local/src/tmux-1.9a/libevent-2.0.21-stable/build/lib"
