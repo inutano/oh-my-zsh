@@ -38,7 +38,11 @@ function jira() {
     _jira_query $@
   elif [[ "$action" == "dashboard" ]]; then
     echo "Opening dashboard"
-    open_command "${jira_url}/secure/Dashboard.jspa"
+    if [[ "$JIRA_RAPID_BOARD" == "true" ]]; then
+      open_command "${jira_url}/secure/RapidBoard.jspa"
+    else
+      open_command "${jira_url}/secure/Dashboard.jspa"
+    fi
   elif [[ "$action" == "dumpconfig" ]]; then
     echo "JIRA_URL=$jira_url"
     echo "JIRA_PREFIX=$jira_prefix"
